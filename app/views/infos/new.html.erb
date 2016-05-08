@@ -2,9 +2,9 @@
   <h1>投稿画面  新着情報</h1>
   <%= form_tag('/infos', method: :post, :multipart => true ) do %>
     <div class="box_infos_newinput">
-      <input placeholder="タイトル" type="text" name="title"><br><br>
+      <textarea placeholder="タイトル" cols="30" rows="2" name="title"></textarea><br><br>
       <input placeholder="画像URL" type="text" name="image"><br><br>
-      <textarea cols="30" name="text" placeholder="説明文" rows="10"></textarea><br><br>
+      <textarea placeholder="説明文" cols="50" rows="5"textarea cols="30" name="text"></textarea><br><br>
       <%= file_field_tag :file, class: "box_infos_newinput" %>
       ※ファイル名はアルファベットにして下さい<br><br>
       <input type="submit" value="SENT"><br><br><br>
