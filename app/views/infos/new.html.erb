@@ -1,0 +1,11 @@
+<div class="contents row">
+  <%= form_tag('/infos', method: :post) do %>
+    <h3>
+      投稿する
+    </h3>
+    <input placeholder="タイトル" type="text" name="title">
+    <input placeholder="画像URL" type="text" name="image">
+    <textarea cols="30" name="text" placeholder="説明文" rows="10"></textarea>
+    <input type="submit" value="SENT">
+  <% end %>
+</div>

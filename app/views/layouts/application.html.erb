@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ShiragamiCorp</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script>
+    $(function(){
+      $("#menubtn").click(function(){
+        $("#menu").slideToggle();
+      });
+    });
+  </script>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="logo">
+        <%= link_to image_tag("logo_shiragami.png",:width => 350, :alt => "shiragami-corporation"), root_path %>
+      </div>
+      <button type="button" id="menubtn">
+        <i class="fa fa-bars"></i><span>MENU</span>
+      </button>
+      <nav class="menubar" id="menu">
+        <li><a href="<%= root_path %>">TOP</a></li>
+        <li class="dropdown menu-company">
+          <a href="/company" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">企業情報<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="company.html#message">代表挨拶</a></li>
+            <li><a href="company.html#business">事業内容</a></li>
+            <li><a href="company.html#overview">企業概要</a></li>
+            <li><a href="company.html#history">沿革</a></li>
+            <li><a href="company.html#access">アクセス</a></li>
+          </ul>
+        </li>
+        <li class="dropdown menu-product">
+          <a href="/product" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">商品情報<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="show.html.erb#roofing">屋根材</a></li>
+            <li><a href="show.html.erb#material">屋根副資材</a></li>
+            <li><a href="show.html.erb#pvsystem">太陽光発電システム</a></li>
+          </ul>
+        </li>
+        <li class="menu-staff"><a href="/staff">採用情報</a></li>
+        <li class="menu-link"><a href="/link">リンク</a></li>
+        <li class="menu-inquiry"><a href="/inquiry">お問い合わせ</a></li>
+      </nav>
+    </div>
+  </header>
+
+<%= yield %>
+
+<FOOTER>
+      <% if user_signed_in? %>
+        <P>
+        <div class="admin">
+          Copyright © 2016 白神商事株式会社<br>
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete %><br>
+          <a class="post" href="/infos/new">新着情報を投稿する</a><br>
+          <a class="post" href="/products/new">取扱製品を投稿する</a><br>
+        </div>
+        </P>
+      <% else %>
+        <P>
+        <div class="visitor">
+          Copyright © 2016 白神商事株式会社<br>
+          <%= link_to "管理者ログイン", new_user_session_path, class: 'post' %>
+        </div>
+        </P>
+      <% end %>
+</FOOTER>
+
+</body>
+</html>
