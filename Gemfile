@@ -50,3 +50,5 @@ group :development, :test do
   gem 'kaminari'
   #ページネーションを実現するためのgem
 end
+
+gem 'carrierwave'

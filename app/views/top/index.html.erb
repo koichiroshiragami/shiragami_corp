@@ -46,7 +46,7 @@
 <div class = "box_newsplus">
   <div class ="box_makernews">
     <div class = "box_makertitle">
-      <h2>取り扱いメーカー新着情報</h2>
+      <h2>新着情報</h2>
     </div>
     <div class = "boxBAB">
       <div class ="box111">
@@ -54,10 +54,12 @@
           <h3>株式会社鶴弥</h3>
           <div class ="box11111">
             <tbody>
+              <% @infos.each do |info| %>
               <tr>
-                <th>2015/09/08</th>
-                <td>新作瓦のお知らせ</td>
+                <th><%= info.created_at.strftime("%Y年%m月%d日") %> </th>
+                <td><%= link_to "#{info.title}", download_pdf_path(info) %></td><br>
               </tr>
+              <% end %>
             </tbody>
           </div>
         </div>

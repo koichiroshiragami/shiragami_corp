@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get   'staff'   =>  "top#staff"
   get   'link'   =>  "top#link"
   get   'inquiry'   =>  "top#inquiry"
+  get   'myfiles/downloadpdf/:id'=> 'myfiles#downloadpdf' ,as: :download_pdf
 
 end
 

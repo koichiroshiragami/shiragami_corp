@@ -15,7 +15,7 @@ class InfosController < ApplicationController
 
     private
     def info_params
-      params.permit(:title, :image, :text)
+      params.permit(:title, :image, :file, :text)
     end
 
   def move_to_infolist
