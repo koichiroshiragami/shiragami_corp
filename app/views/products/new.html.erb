@@ -1,0 +1,13 @@
+<div class= "box_products_new">
+  <h1>投稿画面  製品情報</h1>
+  <%= form_tag('/products', method: :post, :multipart => true ) do %>
+    <div class="box_products_newinput">
+      <textarea placeholder="タイトル" cols="30" rows="2" name="title"></textarea><br><br>
+      <%= file_field_tag :image, class: "box_products_newinput" %>
+      ※ファイル名はアルファベットにして下さい<br><br>
+      <textarea placeholder="説明文（サムネイル用）" cols="50" rows="5" name="shorttext"></textarea><br><br>
+      <textarea placeholder="説明文（詳細用）" cols="50" rows="10" name="fulltext"></textarea><br><br>
+      <input type="submit" value="SENT"><br><br><br>
+    </div>
+  <% end %>
+</div>
